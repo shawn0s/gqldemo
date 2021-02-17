@@ -1,0 +1,52 @@
+scalar DateTime
+
+type Query {
+    bookById(id: ID): Book
+}
+
+type Mutation {
+    createBook(input: BookInput!): Book
+}
+
+input BookInput{
+    name: String
+    pageCount: Int
+    authorId: String
+}
+
+type Book {
+    id: ID
+    name: String
+    pageCount: Int
+    author: Author
+}
+
+type Author {
+    id: ID
+    firstName: String
+    lastName: String
+}
+
+type Course {
+    id: ID!
+    title: String
+    description: String
+    thumbnail: String
+    clips: String
+    clipCount: Int!
+    learningObjective: [String!]
+    targetLearner: String
+    duration: Float
+    deletedStatus: Boolean!
+    publishedStatus: Boolean!
+    draftStatus: Boolean!
+    version: Float
+    status: String
+    createdBy: String!
+    createdAt: DateTime!
+    updatedBy: String!
+    updatedAt: DateTime!
+    publishedAt: DateTime
+    vrModuleId: String
+    assigneeIds: [String!]
+}
